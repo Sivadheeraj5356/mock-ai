@@ -38,7 +38,7 @@ const feedback = ({params}) => {
     <div className='p-8'>
         <h2 className='text-3xl font-bold'>Feedback of your Interview</h2>
         {/* <h2 className='text-2xl font-bold text-zinc-700'>Here is your Interview Feedback</h2> */}
-        <h2 className='text-lg my-5 text-primary'>
+        <h2 className='text-lg my-5'>
             Your overall interview rating
         </h2>
         <h2 className='text-base text-gray-500'>Find below Interview questions with correct answers, Your answers and feedback assesssed by AI </h2>
