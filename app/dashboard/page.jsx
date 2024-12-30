@@ -1,8 +1,11 @@
 import React from 'react'
-import { UserButton } from '@clerk/nextjs'
+import { UserButton, useUser } from '@clerk/nextjs'
 import AddNewInterview from './_components/AddNewInterview'
 import InterviewList from './_components/InterviewList'
+import { redirect } from "next/navigation";
+
 const Dashboard = () => {
+
   return (
     <div className='p-10'>
       <h2 className='font-bold text-2xl'>Dashboard</h2>
