@@ -12,6 +12,7 @@ import { UserAnswer } from '@/utils/schema';
 import { useUser } from '@clerk/nextjs';
 import moment from 'moment';
 import { Loader } from 'lucide-react';
+import Link from 'next/link';
 
 const InterviewAnswers = ({mockInterviewQuestions,activeQuestionIndex, interviewData}) => {
   const { user } = useUser();
@@ -118,7 +119,7 @@ const InterviewAnswers = ({mockInterviewQuestions,activeQuestionIndex, interview
   const handleFeedback =async()=>{
     setLoading(true)
     if(mockInterviewQuestions && mockInterviewQuestions.questions){
-      const feedbackPrompt = "Question "+mockInterviewQuestions.questions[activeQuestionIndex].question +", user answer "+ completeAnswer+"depending on the question and user answer for given interview answer please give us rating for the answer out of 10 strictly based on the answer and the answer assessment resemble interview like situation , if the answer is irrelvent or semi-answered or repeats the question itself , then strictly give low rating and give feed back in 3 to 4 lines and if the user answer is code, check the code and tell them errors in the code and give me the correct answer for the question, in JSON format with rating field and feedback field and correct answer field "
+      const feedbackPrompt = "Question "+mockInterviewQuestions.questions[activeQuestionIndex].question +", user answer "+ completeAnswer+"depending on the question and user answer for given interview answer please give us rating for the answer out of 10 strictly based on the answer and the answer assessment resemble interview like situation , if the answer is irrelvent or semi-answered or repeats the question itself , then strictly give low rating and give feed back in 3 to 4 lines and if the user answer is code, check the code and tell them errors in the code, but give code in single line as well and give me the correct answer(not in json format , but in single line) for the question, in JSON format with rating field and feedback field and correct answer field "
       const result = await chatSession.sendMessage(feedbackPrompt)
       const feedbackJsonResp = (result.response.text()).replace('```json','').replace('```','')
       const JsonFeedbackResponse = JSON.parse(feedbackJsonResp)
@@ -186,9 +187,10 @@ const InterviewAnswers = ({mockInterviewQuestions,activeQuestionIndex, interview
        </div>
       }
         <div className='flex justify-end items-end mt-4'>
-          <div className=''>
+          <Link href={'/dashboard/interview/'+ interviewData?.mockId+'/feedback'}>
          <Button className='flex hover:bg-red-700 justify-center text-lg items-center gap-3 bg-red-500'> End Interview </Button>
-          </div>
+          </Link>
+          
        </div>
     </div>
   )
