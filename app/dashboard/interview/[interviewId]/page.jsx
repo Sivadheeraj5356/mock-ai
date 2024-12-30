@@ -34,7 +34,7 @@ const Interview = ({params}) => {
   }
 
   return (
-    <div className='my-10 '> 
+    <div className='my-10 px-16'> 
        <h2 className='font-bold text-2xl'>Lets Get Started</h2>
        <div className='grid grid-cols-1 md:grid-cols-2 gap-20'>
         

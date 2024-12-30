@@ -2,6 +2,7 @@
 import { useUser } from "@clerk/nextjs";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Header from "./_components/Header";
 
 export default function DashboardLayout({ children }) {
   const { isSignedIn, isLoaded } = useUser();
@@ -14,5 +15,10 @@ export default function DashboardLayout({ children }) {
     }
   }, [isLoaded, isSignedIn, router]);
 
-  return <>{children}</>;
+  return <div>
+  <Header></Header>
+  <div className="px-10">
+  {children}
+  </div>
+  </div>;
 }
