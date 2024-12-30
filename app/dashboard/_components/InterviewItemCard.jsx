@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 const InterviewItemCard = ({interview}) => {
-    const router = useRouter
+    const router = useRouter()
   return (
     <div className='border shadow-sm rounded-lg p-4'>
      <h2 className='font-bold pt-1  uppercase'>Job Role : {interview?.jobPosition}</h2>
