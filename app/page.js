@@ -44,7 +44,7 @@ export default function Home() {
   ];
   return (
     <div>
-      <Image src={'/grid.svg'} className="absolute z-[-10] w-full" 
+      <Image src={'/grid.svg'} className="absolute z-[-10] w-full dark:bg-white dark:text-black" 
       width={1200} height={300} alt="image" />
       <Header/>
      <section className=" z-50">
@@ -54,7 +54,7 @@ export default function Home() {
               New</span> <span className="text-sm font-medium">Check the application Now</span> 
             <svg className="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path></svg>
         </a>
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Your Personal AI Interview Coach</h1>
+        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-black">Your Personal AI Interview Coach</h1>
         <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">Double your chances of landing that job offer
 
 with our AI-powered interview prep</p>
