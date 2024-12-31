@@ -81,7 +81,7 @@ const feedback = ({params}) => {
         </>
         }
         
-        <Button onClick={()=>{
+        <Button className='dark:text-white text-lg p-7 mt-10' onClick={()=>{
             router.replace('/dashboard')
         }}>Go Home</Button>
     </div>

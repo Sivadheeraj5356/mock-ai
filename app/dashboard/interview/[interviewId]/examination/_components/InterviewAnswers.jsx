@@ -183,7 +183,7 @@ const InterviewAnswers = ({mockInterviewQuestions,activeQuestionIndex, interview
     </div>
       :
       <div className='flex justify-center items-center mt-7'>
-         <Button onClick={handleFeedback} className='flex justify-center items-center gap-3'>Save Answer</Button>
+         <Button onClick={handleFeedback} className='flex justify-center items-center gap-3 dark:text-white'>Save Answer</Button>
        </div>
       }
         <div className='flex justify-end items-end mt-4'>

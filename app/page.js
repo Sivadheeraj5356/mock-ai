@@ -1,10 +1,13 @@
+"use client"
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Header from "./dashboard/_components/Header";
 import { AtomIcon, Edit, Share2 } from "lucide-react";
 import { Vortex } from "@/components/ui/vortex";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
+import { useTheme } from "next-themes";
 export default function Home() {
+  const theme = useTheme();
   const testimonials = [
     {
       quote:
@@ -43,9 +46,11 @@ export default function Home() {
     },
   ];
   return (
-    <div>
-      <Image src={'/grid.svg'} className="absolute z-[-10] w-full dark:bg-white dark:text-black" 
-      width={1200} height={300} alt="image" />
+      <div className="relative overflow-hidden dark:bg-gray-900 bg-white text-black dark:text-white">
+        {theme ==="light" &&
+         <Image src={'/grid.svg'} className="absolute z-[-10] w-full dark:bg-white dark:text-black" 
+         width={1200} height={300} alt="image" />
+        }
       <Header/>
      <section className=" z-50">
     <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
@@ -54,7 +59,7 @@ export default function Home() {
               New</span> <span className="text-sm font-medium">Check the application Now</span> 
             <svg className="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path></svg>
         </a>
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-black">Your Personal AI Interview Coach</h1>
+        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Your Personal AI Interview Coach</h1>
         <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">Double your chances of landing that job offer
 
 with our AI-powered interview prep</p>
@@ -103,7 +108,7 @@ with our AI-powered interview prep</p>
         </div> 
     </div>
 </section>
-<section className="py-8 bg-white z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+<section className="py-8 bg-white z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 dark:bg-gray-900 dark:text-white">
 <h2 className="font-bold text-3xl">How it Works?</h2>
 <h2 className="text-md text-gray-500">Give mock interview in just 3 simplar easy step</h2>
 
@@ -164,11 +169,14 @@ with our AI-powered interview prep</p>
       </a>
     </div>
     </section>
+    
   <section>
   <AnimatedTestimonials
   testimonials={testimonials}
   ></AnimatedTestimonials>
   </section>
+  
+
   </div>
  
 

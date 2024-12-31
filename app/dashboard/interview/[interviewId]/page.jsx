@@ -34,7 +34,7 @@ const Interview = ({params}) => {
   }
 
   return (
-    <div className='my-10 px-16'> 
+    <div className='h-screen my-10 px-16 dark:bg-gray-900 dark:text-white'> 
        <h2 className='font-bold text-2xl'>Lets Get Started</h2>
        <div className='grid grid-cols-1 md:grid-cols-2 gap-20'>
         
@@ -46,11 +46,13 @@ const Interview = ({params}) => {
            <h2 className='text-lg'><strong>Years of experience</strong><span className='capitalize font-bold'> : {interviewData.jobExperience}</span> </h2>
         </div>
         </div>
-        <div className='p-5 border rounded-lg border-yellow-300 bg-yellow-100'>
-           <h2 className='flex gap-2 items-center'> <Lightbulb></Lightbulb><strong>Information</strong></h2>
+        <div className='p-5 border rounded-lg border-yellow-300 bg-yellow-100 dark:text-gray-900'>
+           <h2 className='flex gap-2 items-center '> <Lightbulb></Lightbulb><strong>Information</strong></h2>
              <h2>Enable Video Web Cam and Microphone to the Interview
               <div> The Interview contains 10 questions and you will get report based upon your answers assesssed by AI </div>
-              <div>Note : We never record your video , you can disablethe webcam whenever you want</div>
+              <div> You can also disable the webcam and microphone whenever you want</div>
+              <div>Save your Answer before proceding to next question and you cant record or write answer at the same time</div>
+              <div>Note : We never record your video , you can disable the webcam whenever you want</div>
            </h2>
         </div>
         </div>
@@ -80,18 +82,18 @@ const Interview = ({params}) => {
                     style={{height:'100%', width:'100%', objectFit:'cover', transform: 'scale(-1,1)'}}
                     ></Webcam>
                     </div>
-              : <> <UserCircle2 className='h-72 w-full my-7 p-20 bg-secondary text-zinc-800 rounded-lg border' /> 
+              : <> <UserCircle2 className='h-72 w-full my-7 p-20 bg-secondary text-zinc-800 rounded-lg border dark:text-white dark:bg-black' /> 
              
                </>
               }  
-               {(!webcamEnabled) ? <Button className='md:ml-40 ml-10' onClick={()=>{setWebcamEnabled(true)}}>Enable Web Cam and Microphone</Button> 
-              : <Button className='ml-52 mt-10'onClick={()=>{setWebcamEnabled(false)}}>Disable Web Cam</Button>} 
+               {(!webcamEnabled) ? <Button className='md:ml-48 ml-10'variant='outline' onClick={()=>{setWebcamEnabled(true)}}>Enable Web Cam and Microphone</Button> 
+              : <Button variant='outline' className='ml-52 mt-10'onClick={()=>{setWebcamEnabled(false)}}>Disable Web Cam</Button>} 
         </div>
       </div>    
       <div className='flex justify-end items-end'>
-        <Button onClick={()=>{
+        <Button variant='outline' onClick={()=>{
           router.push(`/dashboard/interview/${interviewId}/examination`)
-        }} className='mt-10'>Start Interview</Button>
+        }} className='mt-10 text-xl p-7'>Start Interview</Button>
       </div>
     </div>
   )
