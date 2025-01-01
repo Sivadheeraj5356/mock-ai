@@ -35,7 +35,7 @@ const feedback = ({params}) => {
       setLoading(false)
     }
   return (
-    <div className='p-8'>
+    <div className='p-8 h-screen'>
         <h2 className='text-3xl font-bold'>Feedback of your Interview</h2>
         {/* <h2 className='text-2xl font-bold text-zinc-700'>Here is your Interview Feedback</h2> */}
         <h2 className='text-lg my-5'>

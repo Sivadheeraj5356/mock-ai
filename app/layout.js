@@ -1,6 +1,8 @@
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import ThemeWrapper from "@/components/ThemeWrapper";
 import {
   ClerkProvider,
   SignInButton,
@@ -34,9 +36,9 @@ export default function RootLayout({ children }) {
       defaultTheme="system"
       enableSystem
       disableTransitionOnChange
-    > <div className="dark:bg-gray-900 bg-white text-black dark:text-white">
-        {children}
-    </div>
+    > <ThemeWrapper>
+       {children}
+    </ThemeWrapper>
         </ThemeProvider>
       </body>
     </html>

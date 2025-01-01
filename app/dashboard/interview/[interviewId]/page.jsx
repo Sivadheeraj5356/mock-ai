@@ -34,7 +34,7 @@ const Interview = ({params}) => {
   }
 
   return (
-    <div className='h-screen my-10 px-16 dark:bg-gray-900 dark:text-white'> 
+    <div className='h-screen py-14 px-16 dark:bg-gray-900 dark:text-white'> 
        <h2 className='font-bold text-2xl'>Lets Get Started</h2>
        <div className='grid grid-cols-1 md:grid-cols-2 gap-20'>
         
@@ -93,7 +93,7 @@ const Interview = ({params}) => {
       <div className='flex justify-end items-end'>
         <Button  onClick={()=>{
           router.push(`/dashboard/interview/${interviewId}/examination`)
-        }} className='mt-10 text-xl p-7 dark:bg-black text-white border-white'>Start Interview</Button>
+        }} className=' text-xl p-7 dark:bg-black text-white border-white'>Start Interview</Button>
       </div>
     </div>
   )

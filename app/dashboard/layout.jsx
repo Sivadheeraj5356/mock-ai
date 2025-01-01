@@ -1,4 +1,4 @@
-"use client"; // Ensure this is a client component
+"use client"; 
 import { useUser } from "@clerk/nextjs";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -9,7 +9,6 @@ export default function DashboardLayout({ children }) {
   const router = useRouter();
 
   useEffect(() => {
-    // Redirect to sign-up if the user is not signed in
     if (isLoaded && !isSignedIn) {
       router.push("/sign-up");
     }
