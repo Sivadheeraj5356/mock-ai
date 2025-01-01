@@ -33,8 +33,8 @@ export default function Page() {
               </h2>
       
               <p className="mt-4 leading-relaxed text-white/90">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam dolorum aliquam,
-                quibusdam aperiam voluptatum.
+              Boost Your Confidence with Data-Driven Career Insights
+              Prepare for the competitive job market with a platform that offers custom strategies, targeted practice, and actionable guidance..
               </p>
             </div>
           </section>
@@ -63,12 +63,14 @@ export default function Page() {
                 </a>
       
                 <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-                  Welcome to Squid 🦑
+                  Welcome to MockAI
                 </h1>
       
                 <p className="mt-4 leading-relaxed text-gray-500">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam dolorum aliquam,
-                  quibusdam aperiam voluptatum.
+                Boost Your Confidence with Data-Driven Career Insights
+Prepare for the competitive job market with a platform that offers custom strategies, targeted practice, and actionable guidance.
+
+
                 </p>
               </div>
       

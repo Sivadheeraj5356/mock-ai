@@ -155,7 +155,7 @@ with our AI-powered interview prep</p>
       <ContainerScroll
         titleComponent={
           <>
-           <div className="text-xl lg:text-5xl my-10 font-semibold dark:text-white text-black">
+           <div className="text-xl lg:text-5xl lg:my-10 md:mt-7 font-semibold dark:text-white text-black">
            Level Up Your Interview Game with AI-Powered Practice
            </div>
            <div className="text-base my-10 lg:text-xl dark:text-white text-black">
@@ -188,9 +188,9 @@ with our AI-powered interview prep</p>
   <section>
   <div className="flex flex-col justify-center items-center mt-32">
   <div className="dark:text-white text-xl lg:text-4xl my-5 font-bold text-center">
-  Unlock Your Full Potential with AI-Powered Mock Interview Preparation </div>
+  Redefine Your Career Path with AI-Driven Skill Enhancement </div>
   <div className="text-gray-700 dark:text-gray-300 text-center text-lg lg:mx-40 my-5">
-  Prepare for your next big opportunity with our AI-driven mock interview platform. Tailored to your career goals, our system offers personalized feedback, realistic interview simulations, and progress tracking to help you build confidence and ace any interview  </div>
+  Unlock opportunities with our platform designed to sharpen your skills, improve communication, and provide actionable insights for career growth. </div>
 </div>
     <WobbleCardDemo></WobbleCardDemo>
   </section>
