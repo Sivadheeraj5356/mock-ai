@@ -60,12 +60,12 @@ export default function Home() {
   return (
       <div className="relative overflow-hidden dark:bg-gray-900 bg-white text-black dark:text-white">
         {theme ==="light" &&
-         <Image src={'/grid.svg'} className="absolute z-[-10] w-full dark:bg-white dark:text-black" 
+         <Image src={'/grid.svg'} className="absolute z-[10] w-full" 
          width={1200} height={300} alt="image" />
         }
       <Header/>
      <section className=" z-50">
-    <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+    <div className="py-12 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
         <a href="#" className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" role="alert">
             <span className="text-xs bg-primary rounded-full text-white px-4 py-1.5 mr-3">
               New</span> <span className="text-sm font-medium">Check the application Now</span> 
