@@ -155,10 +155,10 @@ with our AI-powered interview prep</p>
       <ContainerScroll
         titleComponent={
           <>
-           <div className="text-5xl my-10 font-semibold dark:text-white text-black">
+           <div className="text-xl lg:text-5xl my-10 font-semibold dark:text-white text-black">
            Level Up Your Interview Game with AI-Powered Practice
            </div>
-           <div className="my-10 text-xl dark:text-white text-black">
+           <div className="text-base my-10 lg:text-xl dark:text-white text-black">
            Prepare smarter, faster, and more effectively with our advanced AI interview platform. Get real-time feedback, tailored questions, and performance insights to land your dream job.
            </div>
           </>
@@ -178,18 +178,18 @@ with our AI-powered interview prep</p>
 
    <section id='questions'>
    <div className="flex flex-col justify-center items-center my-10">
-  <div className="dark:text-white text-4xl my-5 font-bold text-center">
+  <div className="dark:text-white text-xl lg:text-4xl my-5 font-bold text-center">
   Unlock Your Full Potential with AI-Powered Mock Interview Preparation </div>
-  <div className="text-gray-700 dark:text-gray-300 text-center text-lg mx-40 my-5">
+  <div className="text-gray-700 dark:text-gray-300 text-center text-lg lg:mx-40 my-5">
   Prepare for your next big opportunity with our AI-driven mock interview platform. Tailored to your career goals, our system offers personalized feedback, realistic interview simulations, and progress tracking to help you build confidence and ace any interview  </div>
 </div>
     <BentoGridDemo></BentoGridDemo>
    </section>
   <section>
   <div className="flex flex-col justify-center items-center mt-32">
-  <div className="dark:text-white text-4xl my-5 font-bold text-center">
+  <div className="dark:text-white text-xl lg:text-4xl my-5 font-bold text-center">
   Unlock Your Full Potential with AI-Powered Mock Interview Preparation </div>
-  <div className="text-gray-700 dark:text-gray-300 text-center text-lg mx-40 my-5">
+  <div className="text-gray-700 dark:text-gray-300 text-center text-lg lg:mx-40 my-5">
   Prepare for your next big opportunity with our AI-driven mock interview platform. Tailored to your career goals, our system offers personalized feedback, realistic interview simulations, and progress tracking to help you build confidence and ace any interview  </div>
 </div>
     <WobbleCardDemo></WobbleCardDemo>

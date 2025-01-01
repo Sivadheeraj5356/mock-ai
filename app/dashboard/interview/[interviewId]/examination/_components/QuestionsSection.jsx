@@ -71,7 +71,7 @@ const QuestionsSection = ({
     <div>
       {mockInterviewQuestions?.questions ? (
         <>
-          <div className="p-5 border rounded-lg h-80 my-7">
+          <div className="p-5 border rounded-lg h-80 max-sm:h-96 my-7">
             <div>
               {mockInterviewQuestions.questions.map((item, index) => (
                 <div key={index}>
@@ -95,7 +95,7 @@ const QuestionsSection = ({
             </div>
             <div className="flex justify-end mt-3 gap-5">
               <div
-                className="bg-primary px-5 text-white p-2 rounded-lg cursor-pointer"
+                className="bg-primary p-2 lg:px-5 text-white lg:p-2 rounded-lg cursor-pointer"
                 onClick={() => {
                   const newIndex = (activeQuestionIndex - 1 + mockInterviewQuestions.questions.length) %
                     mockInterviewQuestions.questions.length;
@@ -105,7 +105,7 @@ const QuestionsSection = ({
                 Previous Question
               </div>
               <div
-                className="bg-primary px-5 text-white p-2 rounded-lg cursor-pointer"
+                className="bg-primary lg:px-5 p-2 text-white lg:p-2 rounded-lg cursor-pointer"
                 onClick={() => {
                   const newIndex = (activeQuestionIndex + 1) %
                     mockInterviewQuestions.questions.length;

@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 const Dashboard = () => {
 
   return (
-    <div className='p-10 h-screen dark:bg-gray-900 dark:text-white '>
+    <div className='lg:p-10 pt-5 h-screen max-sm:h-max dark:bg-gray-900 dark:text-white '>
       <h2 className='font-bold text-2xl'>Dashboard</h2>
       <h2 className='text-gray-500'>Create and Start your AI Mockup Interview</h2>
        

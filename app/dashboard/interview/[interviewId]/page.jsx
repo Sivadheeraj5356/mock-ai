@@ -34,7 +34,7 @@ const Interview = ({params}) => {
   }
 
   return (
-    <div className='h-screen py-14 px-16 dark:bg-gray-900 dark:text-white'> 
+    <div className='h-max py-14 lg:px-16 max-sm:px-5 dark:bg-gray-900 dark:text-white'> 
        <h2 className='font-bold text-2xl'>Lets Get Started</h2>
        <div className='grid grid-cols-1 md:grid-cols-2 gap-20'>
         
@@ -72,8 +72,8 @@ const Interview = ({params}) => {
       }
       <div>
              {webcamEnabled ?
-             <div className='h-72 w-full my-7 p-20 relative bg-secondary overflow-hidden text-zinc-800 rounded-lg border'
-                    style={{ width: '600px', height: '280px' }}>
+             <div className='h-[280px] w-[600px] max-sm:w-[350px] my-7 lg:p-20 relative bg-secondary overflow-hidden text-zinc-800 rounded-lg border'
+                    >
                     <Webcam
                     onUserMediaError={() => {setWebcamEnabled(false)}}
                     mirrored={true}
@@ -86,14 +86,14 @@ const Interview = ({params}) => {
              
                </>
               }  
-               {(!webcamEnabled) ? <Button className='md:ml-48 ml-10 dark:bg-black text-white border-white' onClick={()=>{setWebcamEnabled(true)}}>Enable Web Cam and Microphone</Button> 
-              : <Button  className='ml-60 dark:bg-black text-white border-white'onClick={()=>{setWebcamEnabled(false)}}>Disable Web Cam</Button>} 
+               {(!webcamEnabled) ? <Button className='md:ml-48 max-sm:ml-10 dark:bg-black text-white border-white' onClick={()=>{setWebcamEnabled(true)}}>Enable Web Cam and Microphone</Button> 
+              : <Button  className='lg:ml-60 max-sm:ml-20 dark:bg-black text-white border-white'onClick={()=>{setWebcamEnabled(false)}}>Disable Web Cam</Button>} 
         </div>
       </div>    
       <div className='flex justify-end items-end'>
         <Button  onClick={()=>{
           router.push(`/dashboard/interview/${interviewId}/examination`)
-        }} className=' text-xl p-7 dark:bg-black text-white border-white'>Start Interview</Button>
+        }} className='max-sm:mt-10 text-xl p-7 dark:bg-black text-white border-white'>Start Interview</Button>
       </div>
     </div>
   )
