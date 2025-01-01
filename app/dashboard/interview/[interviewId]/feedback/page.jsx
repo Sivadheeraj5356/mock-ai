@@ -16,9 +16,13 @@ const feedback = ({params}) => {
     const router = useRouter()
     const [feedbackList, setFeedbackList] = useState([])
     const [loading , setLoading] = useState(true)
+    const [rating, setRating] = useState(0)
     useEffect(()=>{
        Getfeeback()
     },[])
+    useEffect(() => {
+      calculateRating();
+    }, [feedbackList]);
     const Getfeeback =async()=>{
        const unwrappedParams = await params
 
@@ -34,12 +38,23 @@ const feedback = ({params}) => {
       setFeedbackList(result)
       setLoading(false)
     }
+    const calculateRating = () => {
+      if (feedbackList.length > 0) {
+        const totalRating = feedbackList.reduce(
+          (acc, curr) => acc + Math.min(curr.rating || 0, 10), // Clamp each rating to a max of 10
+          0
+        );
+        const overallRating = totalRating / feedbackList.length;
+        setRating(Math.min(overallRating, 10).toFixed(1)); // Clamp overall rating to max 10
+      }
+    };
+    
   return (
     <div className='max-sm:px-5 max-sm:pt-7 lg:p-8 h-max'>
         <h2 className='text-3xl font-bold'>Feedback of your Interview</h2>
         {/* <h2 className='text-2xl font-bold text-zinc-700'>Here is your Interview Feedback</h2> */}
         <h2 className='text-lg my-5'>
-            Your overall interview rating
+            Your overall interview rating is {rating}/ 10
         </h2>
         <h2 className='text-base text-gray-500'>Find below Interview questions with correct answers, Your answers and feedback assesssed by AI </h2>
         {loading ? <>
