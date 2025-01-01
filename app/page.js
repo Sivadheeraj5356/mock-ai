@@ -92,7 +92,7 @@ with our AI-powered interview prep</p>
     </div>
 </section>
 <section className="py-8 bg-white z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 dark:bg-gray-900 dark:text-white">
-<h2 className="font-bold text-3xl">How it Works?</h2>
+<h2 id='how-it-works' className=" font-bold text-3xl">How it Works?</h2>
 <h2 className="text-md text-gray-500">Give mock interview in just 3 simplar easy step</h2>
 
 <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -143,7 +143,7 @@ with our AI-powered interview prep</p>
 
     <div className="mt-12 text-center">
       <a
-        href="/sign-in"
+        href="/dashboard"
         className="inline-block rounded  px-12 py-3 text-sm font-medium text-black dark:text-white transition dark:bg-black bg-white focus:outline-none focus:ring focus:ring-yellow-400"
       >
         Get Started Today
@@ -176,7 +176,7 @@ with our AI-powered interview prep</p>
     </div>
     </section>
 
-   <section>
+   <section id='questions'>
    <div className="flex flex-col justify-center items-center my-10">
   <div className="dark:text-white text-4xl my-5 font-bold text-center">
   Unlock Your Full Potential with AI-Powered Mock Interview Preparation </div>
