@@ -69,7 +69,7 @@ const AddNewInterview = () => {
           setOpenDialog(true)
          }
         >
-           <h2 className='font-bold text-lg'> + Add New</h2>
+           <h2 className='font-bold text-lg'> + Start a New Interview</h2>
         </div>
          <Dialog open={openDialog}>
            <DialogContent className='max-w-2xl'>
