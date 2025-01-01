@@ -12,12 +12,12 @@ const InterviewItemCard = ({interview}) => {
      <h2 className='text-base mt-1 text-gray-500'>Created At : {interview.createdAt}</h2>
      
      <div className='flex justify-between mt-2 gap-5'>
-        <Button size='sm' variant='outline' className='w-full'
+        <Button size='sm'  className='w-full dark:bg-black text-white border-white'
         onClick={()=>{
             router.push("/dashboard/interview/"+interview?.mockId+"/feedback")
         }}
         >Feedback</Button>  
-         <Button size='sm' variant='outline' className='w-full'
+         <Button size='sm' className='w-full dark:bg-black text-white border-white'
          onClick={()=>{
             router.push("/dashboard/interview/"+interview?.mockId)
         }}

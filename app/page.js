@@ -1,11 +1,17 @@
 "use client"
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import Header from "./dashboard/_components/Header";
 import { AtomIcon, Edit, Share2 } from "lucide-react";
 import { Vortex } from "@/components/ui/vortex";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import { useTheme } from "next-themes";
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import Image from "next/image";
+import { Cover } from "@/components/ui/cover";
+import BentoGridDemo from "@/components/BentoGridDemo";
+import InfiniteMovingCardsDemo from "@/components/InfiniteCardsDemo";
+import { WobbleCardDemo } from "@/components/WobbleCardDemo";
+
 export default function Home() {
   const theme = useTheme();
   const testimonials = [
@@ -44,6 +50,12 @@ export default function Home() {
       designation: "VP of Technology at FutureNet",
       src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
+      {
+        "quote": "Mock AI not only prepared me for technical questions but also boosted my confidence in behavioral interviews.",
+        "name": "Emily Johnson",
+        "designation": "HR Specialist at GlobalCorp",
+        "src": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      }
   ];
   return (
       <div className="relative overflow-hidden dark:bg-gray-900 bg-white text-black dark:text-white">
@@ -59,7 +71,7 @@ export default function Home() {
               New</span> <span className="text-sm font-medium">Check the application Now</span> 
             <svg className="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path></svg>
         </a>
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Your Personal AI Interview Coach</h1>
+        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Your Personalized <br /><span className="my-5 block text-center"> <Cover>AI Mock Interview</Cover> Coach</span></h1>
         <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">Double your chances of landing that job offer
 
 with our AI-powered interview prep</p>
@@ -73,7 +85,129 @@ with our AI-powered interview prep</p>
             </a> 
             
         </div>
-        <div className="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36">
+        <div>
+          <InfiniteMovingCardsDemo></InfiniteMovingCardsDemo>
+        </div>
+       
+    </div>
+</section>
+<section className="py-8 bg-white z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 dark:bg-gray-900 dark:text-white">
+<h2 className="font-bold text-3xl">How it Works?</h2>
+<h2 className="text-md text-gray-500">Give mock interview in just 3 simplar easy step</h2>
+
+<div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <a
+        className="block rounded-xl border bg-white
+         border-gray-200 p-8 shadow-xl transition
+         hover:border-pink-500/10 hover:shadow-pink-500/10"
+        href="#"
+      >
+       <AtomIcon className='h-8 w-8 dark:text-black'/>
+
+       <h2 className="mt-4 text-xl font-bold dark:text-black">Practice Mock Interviews</h2>
+
+<p className="mt-1 text-sm text-gray-600">
+  Simulate realistic interviews tailored to your role and industry. Practice answering technical, behavioral, and situational questions with AI-crafted scenarios to help you gain confidence and improve your skills.
+</p>
+</a>
+
+<a
+  className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
+  href="#"
+>
+<Edit className='h-8 w-8 dark:text-black'/>
+
+<h2 className="mt-4 text-xl font-bold text-black">Get Personalized Feedback</h2>
+
+<p className="mt-1 text-sm text-gray-600">
+  Receive comprehensive feedback on your performance. From your coding approach to your communication style, our AI provides insights on clarity, confidence, technical accuracy, and areas for improvement.
+</p>
+</a>
+
+<a
+  className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
+  href="#"
+>
+<Share2 className='h-8 w-8 dark:text-black' />
+
+<h2 className="mt-4 text-xl font-bold text-black">Share & Track Your Progress</h2>
+
+<p className="mt-1 text-sm text-gray-600">
+  Share your performance reports with mentors, recruiters, or peers for additional feedback. Use our intuitive dashboards to monitor your progress over time and identify trends in your improvement.
+</p>
+</a>
+
+
+    
+    </div>
+
+    <div className="mt-12 text-center">
+      <a
+        href="/sign-in"
+        className="inline-block rounded  px-12 py-3 text-sm font-medium text-black dark:text-white transition dark:bg-black bg-white focus:outline-none focus:ring focus:ring-yellow-400"
+      >
+        Get Started Today
+      </a>
+    </div>
+    </section>
+    <section>
+    <div className="flex flex-col overflow-hidden">
+      <ContainerScroll
+        titleComponent={
+          <>
+           <div className="text-5xl my-10 font-semibold dark:text-white text-black">
+           Level Up Your Interview Game with AI-Powered Practice
+           </div>
+           <div className="my-10 text-xl dark:text-white text-black">
+           Prepare smarter, faster, and more effectively with our advanced AI interview platform. Get real-time feedback, tailored questions, and performance insights to land your dream job.
+           </div>
+          </>
+        }
+      >
+        <Image
+          src={`https://cdn.dribbble.com/userupload/8367597/file/original-80e26632af0c177fd934874eeeb877b9.png?resize=1504x1128&amp`}
+          alt="hero"
+          height={720}
+          width={1400}
+          className="mx-auto rounded-2xl object-cover h-full object-left-top"
+          draggable={false}
+        />
+      </ContainerScroll>
+    </div>
+    </section>
+
+   <section>
+   <div className="flex flex-col justify-center items-center my-10">
+  <div className="dark:text-white text-4xl my-5 font-bold text-center">
+  Unlock Your Full Potential with AI-Powered Mock Interview Preparation </div>
+  <div className="text-gray-700 dark:text-gray-300 text-center text-lg mx-40 my-5">
+  Prepare for your next big opportunity with our AI-driven mock interview platform. Tailored to your career goals, our system offers personalized feedback, realistic interview simulations, and progress tracking to help you build confidence and ace any interview  </div>
+</div>
+    <BentoGridDemo></BentoGridDemo>
+   </section>
+  <section>
+  <div className="flex flex-col justify-center items-center mt-32">
+  <div className="dark:text-white text-4xl my-5 font-bold text-center">
+  Unlock Your Full Potential with AI-Powered Mock Interview Preparation </div>
+  <div className="text-gray-700 dark:text-gray-300 text-center text-lg mx-40 my-5">
+  Prepare for your next big opportunity with our AI-driven mock interview platform. Tailored to your career goals, our system offers personalized feedback, realistic interview simulations, and progress tracking to help you build confidence and ace any interview  </div>
+</div>
+    <WobbleCardDemo></WobbleCardDemo>
+  </section>
+  <section>
+  <div className="flex flex-col justify-center items-center mt-40">
+  <div className="dark:text-white text-4xl my-5 font-bold text-center">
+    Trusted by Over 100 Users Worldwide
+  </div>
+  <div className="text-gray-700 dark:text-gray-300 text-center text-lg">
+    Hear from our users about how Mock AI is helping them ace their interviews and land their dream jobs.
+  </div>
+</div>
+
+  <AnimatedTestimonials
+  testimonials={testimonials}
+  ></AnimatedTestimonials>
+   <div className="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36 my-10">
             <span className="font-semibold text-gray-400 uppercase">FEATURED IN</span>
             <div className="flex flex-wrap justify-center items-center mt-8 text-gray-500 sm:justify-between">
                 <a href="#" className="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400">
@@ -106,74 +240,6 @@ with our AI-powered interview prep</p>
                 </a>         
             </div>
         </div> 
-    </div>
-</section>
-<section className="py-8 bg-white z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 dark:bg-gray-900 dark:text-white">
-<h2 className="font-bold text-3xl">How it Works?</h2>
-<h2 className="text-md text-gray-500">Give mock interview in just 3 simplar easy step</h2>
-
-<div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-      <a
-        className="block rounded-xl border bg-white
-         border-gray-200 p-8 shadow-xl transition
-         hover:border-pink-500/10 hover:shadow-pink-500/10"
-        href="#"
-      >
-       <AtomIcon className='h-8 w-8'/>
-
-        <h2 className="mt-4 text-xl font-bold text-black">Write promot for your form</h2>
-
-        <p className="mt-1 text-sm text-gray-600">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci
-          distinctio alias voluptatum blanditiis laudantium.
-        </p>
-      </a>
-
-      <a
-        className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
-        href="#"
-      >
-      <Edit className='h-8 w-8'/>
-
-        <h2 className="mt-4 text-xl font-bold text-black">Edit Your form </h2>
-
-        <p className="mt-1 text-sm text-gray-600">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci
-          distinctio alias voluptatum blanditiis laudantium.
-        </p>
-      </a>
-
-      <a
-        className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
-        href="#"
-      >
-      <Share2 className='h-8 w-8' />
-
-        <h2 className="mt-4 text-xl font-bold text-black">Share & Start Accepting Responses</h2>
-
-        <p className="mt-1 text-sm text-gray-600">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci
-          distinctio alias voluptatum blanditiis laudantium.
-        </p>
-      </a>
-
-    
-    </div>
-
-    <div className="mt-12 text-center">
-      <a
-        href="/sign-in"
-        className="inline-block rounded bg-pink-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-pink-700 focus:outline-none focus:ring focus:ring-yellow-400"
-      >
-        Get Started Today
-      </a>
-    </div>
-    </section>
-    
-  <section>
-  <AnimatedTestimonials
-  testimonials={testimonials}
-  ></AnimatedTestimonials>
   </section>
   
 

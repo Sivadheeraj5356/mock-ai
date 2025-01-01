@@ -17,7 +17,7 @@ export default function DashboardLayout({ children }) {
 
   return <div>
   <Header></Header>
-  <div className="px-10">
+  <div className="px-16 dark:bg-gray-900">
   {children}
   </div>
   </div>;

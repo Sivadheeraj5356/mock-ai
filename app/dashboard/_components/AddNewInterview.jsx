@@ -105,9 +105,9 @@ const AddNewInterview = () => {
                      </div>
                   </div>
                  <div className='flex gap-5 justify-end mt-5'>
-                   <Button type='button' variant="ghost" className='font-bold text-black' onClick={()=>setOpenDialog(false)}>Cancel</Button>
-                   <Button type='submit' disabled={loading}>
-                    {loading ? <><LoaderCircle className='animate-spin'></LoaderCircle> Generating from AI</>:'Start Interview'}
+                   <Button type='button' className='font-semibold text-white dark:bg-gray-900 border-white border-2' onClick={()=>setOpenDialog(false)}>Cancel</Button>
+                   <Button type='submit' className='dark:bg-gray-900 text-white border-white border-2' disabled={loading}>
+                    {loading ? <><LoaderCircle className='animate-spin'></LoaderCircle> Generating from AI</>:<div>Start Interview</div>}
                     </Button>
                  </div>
                  </form>

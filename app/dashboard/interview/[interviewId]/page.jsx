@@ -86,14 +86,14 @@ const Interview = ({params}) => {
              
                </>
               }  
-               {(!webcamEnabled) ? <Button className='md:ml-48 ml-10'variant='outline' onClick={()=>{setWebcamEnabled(true)}}>Enable Web Cam and Microphone</Button> 
-              : <Button variant='outline' className='ml-52 mt-10'onClick={()=>{setWebcamEnabled(false)}}>Disable Web Cam</Button>} 
+               {(!webcamEnabled) ? <Button className='md:ml-48 ml-10 dark:bg-black text-white border-white' onClick={()=>{setWebcamEnabled(true)}}>Enable Web Cam and Microphone</Button> 
+              : <Button  className='ml-60 dark:bg-black text-white border-white'onClick={()=>{setWebcamEnabled(false)}}>Disable Web Cam</Button>} 
         </div>
       </div>    
       <div className='flex justify-end items-end'>
-        <Button variant='outline' onClick={()=>{
+        <Button  onClick={()=>{
           router.push(`/dashboard/interview/${interviewId}/examination`)
-        }} className='mt-10 text-xl p-7'>Start Interview</Button>
+        }} className='mt-10 text-xl p-7 dark:bg-black text-white border-white'>Start Interview</Button>
       </div>
     </div>
   )

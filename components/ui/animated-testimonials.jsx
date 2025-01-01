@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 export const AnimatedTestimonials = ({
   testimonials,
-  autoplay = false
+  autoplay = true
 }) => {
   const [active, setActive] = useState(0);
 

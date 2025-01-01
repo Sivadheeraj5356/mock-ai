@@ -11,7 +11,7 @@ const Header = () => {
    console.log(path)
     },[])
   return (
-    <div className='flex p-4 justify-between items-center bg-secondary shadow-md '>
+    <div className='flex p-4 justify-between items-center bg-secondary shadow-md dark:bg-gray-800'>
        <div className='ml-10 flex gap-5'>
          {/* <Image src={'/logo.svg'} alt="logo" width={50} height={50} /> */}
          <Link href={"/dashboard"}>

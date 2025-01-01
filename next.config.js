@@ -2,8 +2,8 @@
 const nextConfig = {
   images: {
     domains: [
-      'images.unsplash.com', // Add unsplash domain
-      // Add other domains if needed
+      'images.unsplash.com', 
+      'cdn.dribbble.com'
     ],
   },
 }
