@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import ThemeWrapper from "@/components/ThemeWrapper";
+import { Toaster } from "@/components/ui/sonner";
 import {
   ClerkProvider,
   SignInButton,
@@ -38,6 +39,7 @@ export default function RootLayout({ children }) {
       disableTransitionOnChange
     > <ThemeWrapper>
        {children}
+       <Toaster />
     </ThemeWrapper>
         </ThemeProvider>
       </body>
