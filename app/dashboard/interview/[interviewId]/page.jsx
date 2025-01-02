@@ -34,7 +34,7 @@ const Interview = ({params}) => {
   }
 
   return (
-    <div className='h-max py-14 lg:px-16 max-sm:px-5 dark:bg-gray-900 dark:text-white'> 
+    <div className='min-h-screen py-14 lg:px-16 max-sm:px-5 dark:bg-gray-900 dark:text-white'> 
        <h2 className='font-bold text-2xl'>Lets Get Started</h2>
        <div className='grid grid-cols-1 md:grid-cols-2 gap-20'>
         
