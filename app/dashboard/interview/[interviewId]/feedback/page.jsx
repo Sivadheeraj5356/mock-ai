@@ -41,11 +41,11 @@ const feedback = ({params}) => {
     const calculateRating = () => {
       if (feedbackList.length > 0) {
         const totalRating = feedbackList.reduce(
-          (acc, curr) => acc + Math.min(curr.rating || 0, 10), // Clamp each rating to a max of 10
+          (acc, curr) => acc + Math.min(curr.rating || 0, 10), 
           0
         );
         const overallRating = totalRating / feedbackList.length;
-        setRating(Math.min(overallRating, 10).toFixed(1)); // Clamp overall rating to max 10
+        setRating(Math.min(overallRating, 10).toFixed(1));
       }
     };
     
