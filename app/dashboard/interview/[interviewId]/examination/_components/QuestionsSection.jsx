@@ -77,17 +77,8 @@ const QuestionsSection = ({
                 <div key={index}>
                   {activeQuestionIndex === index && (
                     <div>
-                      <div className="my-1  text-md md:text-lg font-medium">
-                        <div className='font-bold'>Question {index + 1}</div>
-                        <div className='max-h-36 overflow-y-auto [&::-webkit-scrollbar]:w-2
-  [&::-webkit-scrollbar-track]:rounded-full
-  [&::-webkit-scrollbar-track]:bg-gray-100
-  [&::-webkit-scrollbar-thumb]:rounded-full
-  [&::-webkit-scrollbar-thumb]:bg-gray-300
-  dark:[&::-webkit-scrollbar-track]:bg-neutral-700
-  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500'>
-                          {item.question}
-                          </div>
+                      <div className="my-1 text-md md:text-lg font-medium">
+                        <p className='font-bold'>Question {index + 1}</p>  {item.question}
                       </div>
                     </div>
                   )}
