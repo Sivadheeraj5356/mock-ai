@@ -38,7 +38,7 @@ const RecordAns = () => {
        </>
         :
        <>
-       <UserCircle2 className='h-72 w-full my-7 p-20 bg-secondary text-zinc-800 rounded-lg border' />
+       <UserCircle2 className='h-72 w-full my-7 p-20 dark:text-white bg-secondary text-zinc-800 rounded-lg border' />
        <div className='relative -top-20 left-[275px]'>
        <div className='bg-red-600 rounded-full p-2 w-12 h-12 cursor-pointer' onClick={()=>{setWebcamEnabled(true)}}>
        <IoVideocamOff 

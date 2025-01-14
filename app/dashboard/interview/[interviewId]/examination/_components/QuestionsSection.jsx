@@ -89,7 +89,7 @@ const QuestionsSection = ({
                 className="bg-gray-200 rounded-full mt-5 p-3 h-12 w-12 cursor-pointer"
                 onClick={voice ? offhandleVoice : onhandleVoice}
               >
-                {voice ? <VolumeOff /> : <Volume2 />}
+                {voice ? <VolumeOff className='text-black' /> : <Volume2 className='text-black' />}
               </div> 
               
             </div>
