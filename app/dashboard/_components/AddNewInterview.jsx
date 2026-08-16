@@ -76,9 +76,11 @@ const AddNewInterview = () => {
              <DialogHeader>
                <DialogTitle className='font-bold text-2xl'> Tell us more about your job interview</DialogTitle>
                <DialogDescription>
-                <form onSubmit={onSubmit}>
+                 Add Details about your job position , job description and years of experience
+               </DialogDescription>
+             </DialogHeader>
+             <form onSubmit={onSubmit}>
                   <div>
-                  <h2>Add Details about your job position , job description and years of experience</h2> 
                      <div className='mt-7 my-2'> 
                            <label>Job position/Job Role</label>
                            <Input placeholder='Ex. Full Stack Developer' required className='mt-2'
@@ -110,9 +112,7 @@ const AddNewInterview = () => {
                     {loading ? <><LoaderCircle className='animate-spin'></LoaderCircle> Generating from AI</>:<div>Start Interview</div>}
                     </Button>
                  </div>
-                 </form>
-               </DialogDescription>
-             </DialogHeader>
+             </form>
            </DialogContent>
          </Dialog>
 
