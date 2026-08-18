@@ -5,7 +5,7 @@ import { useEffect , useState } from 'react';
 import useSpeechToText from 'react-hook-speech-to-text';
 import { Textarea } from '@/components/ui/textarea';
 import { Mic } from 'lucide-react';
-import { chatSession } from '@/utils/GeminiModel';
+import { answerFeedbackSchema, generateJson } from '@/utils/GeminiModel';
 import { toast } from 'sonner';
 import { db } from '@/utils/db';
 import { UserAnswer } from '@/utils/schema';
@@ -117,14 +117,14 @@ const InterviewAnswers = ({mockInterviewQuestions,activeQuestionIndex, interview
     if (isRecording) stopSpeechToText();
   }, [activeQuestionIndex]);
   const handleFeedback =async()=>{
+    if(!mockInterviewQuestions || !mockInterviewQuestions.questions) return
+
     setLoading(true)
-    if(mockInterviewQuestions && mockInterviewQuestions.questions){
+    try {
       const feedbackPrompt = "Question "+mockInterviewQuestions.questions[activeQuestionIndex].question +", user answer "+ completeAnswer+"depending on the question and user answer for given interview answer please give us rating for the answer out of 10 strictly based on the answer and the answer assessment resemble interview like situation , if the answer is irrelvent or semi-answered or repeats the question itself , then strictly give low rating and give feed back in 3 to 4 lines and if the user answer is code, check the code and tell them errors in the code, but give code in single line as well and give me the correct answer(not in json format , but in single line) for the question, in JSON format with rating field and feedback field and correct answer field "
-      const result = await chatSession.sendMessage(feedbackPrompt)
-      const feedbackJsonResp = (result.response.text()).replace('```json','').replace('```','')
-      const JsonFeedbackResponse = JSON.parse(feedbackJsonResp)
-      console.log(JsonFeedbackResponse)
-      const response = await db.insert(UserAnswer)
+      const JsonFeedbackResponse = await generateJson(feedbackPrompt, answerFeedbackSchema)
+
+      await db.insert(UserAnswer)
       .values({
         mockIdRef: interviewData?.mockId,
         question : mockInterviewQuestions.questions[activeQuestionIndex].question,
@@ -135,10 +135,12 @@ const InterviewAnswers = ({mockInterviewQuestions,activeQuestionIndex, interview
         userEmail : interviewData?.createdBy,
         createdAt : moment().format('DD-MM-YYYY')
       })
-      if(response){
-        setLoading(false)
-        toast('User Answer saved succesfully')
-      }
+      toast('User Answer saved succesfully')
+    } catch (err) {
+      console.error(err)
+      toast.error(err?.message || 'Could not save your answer. Please try again.')
+    } finally {
+      setLoading(false)
     }
   }
   return (
