@@ -53,7 +53,7 @@ export async function POST(req) {
     const quota = await consumeAiRequest(userId);
     if (!quota.allowed) {
       return NextResponse.json(
-        { error: "Hourly AI limit reached. Please try again later." },
+        { error: quota.global ? "The AI service is at today's capacity. Please try again tomorrow." : "Hourly AI limit reached. Please try again later." },
         { status: 429, headers: { "Retry-After": String(quota.retryAfterSeconds) } }
       );
     }
