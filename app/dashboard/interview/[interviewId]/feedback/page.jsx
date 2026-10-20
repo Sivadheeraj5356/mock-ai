@@ -59,7 +59,7 @@ const feedback = ({params}) => {
         <h2 className='text-lg my-5'>
             Your overall interview rating is {rating}/ 10
         </h2>
-        <h2 className='text-base text-gray-500'>Find below Interview questions with correct answers, Your answers and feedback assesssed by AI </h2>
+        <h2 className='text-base text-gray-600 dark:text-gray-300'>Find below Interview questions with correct answers, Your answers and feedback assesssed by AI </h2>
         {loading ? <>
           <div>
             <div className='h-20 w-full bg-secondary m-3 '></div>
