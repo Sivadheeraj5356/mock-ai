@@ -37,8 +37,14 @@ const feedback = ({params}) => {
     }
     const calculateRating = () => {
       if (feedbackList.length > 0) {
+        const parseRating = (value) => {
+          // The AI returns ratings like "1/10" - take the leading number.
+          const match = String(value ?? '').match(/\d+(\.\d+)?/);
+          const num = match ? parseFloat(match[0]) : 0;
+          return Math.min(Math.max(num, 0), 10);
+        };
         const totalRating = feedbackList.reduce(
-          (acc, curr) => acc + Math.min(curr.rating || 0, 10), 
+          (acc, curr) => acc + parseRating(curr.rating),
           0
         );
         const overallRating = totalRating / feedbackList.length;
