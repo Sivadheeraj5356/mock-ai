@@ -1,9 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import { useUser } from '@clerk/nextjs';
-import { db } from '@/utils/db';
-import { MockInterview } from '@/utils/schema';
-import { desc, eq } from 'drizzle-orm';
 import InterviewItemCard from './InterviewItemCard';
 
 const InterviewList = () => {
@@ -13,11 +10,9 @@ const InterviewList = () => {
          user && GetInterviewList()
      },[user])
     const GetInterviewList=async()=>{
-        const result = await db.select()
-        .from(MockInterview)
-        .where(eq(MockInterview.createdBy, user?.primaryEmailAddress?.emailAddress))
-        .orderBy(desc(MockInterview.id))
-
+        const res = await fetch('/api/interviews')
+        if (!res.ok) return
+        const result = await res.json()
         setInterviewList(result)
         console.log("result",result)
         console.log('user', user)

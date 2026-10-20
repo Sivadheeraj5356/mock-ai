@@ -1,8 +1,5 @@
 "use client"
-import { db } from '@/utils/db'
-import { MockInterview } from '@/utils/schema'
 import React, { useEffect ,useState } from 'react'
-import { eq } from 'drizzle-orm'
 import Webcam from 'react-webcam'
 import { LucideUserCircle, User2Icon, UserCheckIcon, UserCircle, UserCircle2, UserCircle2Icon, UserIcon, WebcamIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -28,9 +25,10 @@ const Interview = ({params}) => {
   }, [params]);
 
   const GetInterviewDetails=async(interviewId)=>{
-    const result = await db.select().from(MockInterview)
-    .where(eq(MockInterview.mockId,interviewId))
-    setInterviewData(result[0])
+    const res = await fetch('/api/interviews/' + interviewId)
+    if (!res.ok) return
+    const result = await res.json()
+    setInterviewData(result)
   }
 
   return (

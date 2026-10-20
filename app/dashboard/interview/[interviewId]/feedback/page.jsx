@@ -1,8 +1,5 @@
 "use client"
-import { db } from '@/utils/db'
 import { Button } from '@/components/ui/button'
-import { UserAnswer } from '@/utils/schema'
-import { eq } from 'drizzle-orm'
 import { ChevronsUpDown, User } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import {
@@ -26,9 +23,9 @@ const feedback = ({params}) => {
     const Getfeeback =async()=>{
        const unwrappedParams = await params
 
-       const result = await db.select()
-       .from(UserAnswer).where(eq(UserAnswer.mockIdRef, unwrappedParams.interviewId))
-       .orderBy(UserAnswer.id)
+       const res = await fetch('/api/answers?mockId=' + unwrappedParams.interviewId)
+       if (!res.ok) { setLoading(false); return }
+       const result = await res.json()
     //    console.log(result)
     // const parsedResult = result.map(item => ({
     //     ...item,

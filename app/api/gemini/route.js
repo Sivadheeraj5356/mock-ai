@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
+import { auth } from "@clerk/nextjs/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { consumeAiRequest } from "@/utils/rateLimit";
 import { interviewQuestionsSchema, answerFeedbackSchema } from "@/utils/geminiClient";
 
 const MODEL_NAME = "gemini-flash-latest";
@@ -42,8 +44,19 @@ const generateWithRetry = async (model, prompt, attempts = 3) => {
 
 export async function POST(req) {
   try {
+    const { userId } = await auth();
+    if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) return NextResponse.json({ error: "AI service is not configured." }, { status: 500 });
+
+    const quota = await consumeAiRequest(userId);
+    if (!quota.allowed) {
+      return NextResponse.json(
+        { error: "Hourly AI limit reached. Please try again later." },
+        { status: 429, headers: { "Retry-After": String(quota.retryAfterSeconds) } }
+      );
+    }
 
     const { kind, prompt } = await req.json();
     const responseSchema = SCHEMAS[kind];

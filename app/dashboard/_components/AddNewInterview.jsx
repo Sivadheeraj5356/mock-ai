@@ -13,11 +13,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { generateJson } from '@/utils/geminiClient'
 import { FileText, LoaderCircle, Upload, X } from 'lucide-react'
 import { toast } from 'sonner'
-import { db } from '@/utils/db'
-import { MockInterview } from '@/utils/schema'
-import { v4 as uuidv4 } from 'uuid'
 import { useUser } from '@clerk/nextjs'
-import moment from 'moment'
 import { useRouter } from 'next/navigation'
 
 const ACCEPTED_RESUME_TYPES = [
@@ -116,16 +112,13 @@ const AddNewInterview = () => {
       const MockJsonResponse = JSON.stringify(questions)
       setJsonResponse(MockJsonResponse)
 
-      const resp = await db.insert(MockInterview)
-      .values({
-           mockId:uuidv4(),
-           jsonMockResp:MockJsonResponse,
-           jobPosition :jobPosition,
-           jobDesc : jobDesc ,
-           jobExperience : jobExperience ,
-           createdBy :user?.primaryEmailAddress?.emailAddress,
-           createdAt: moment().format('DD-MM-YYYY')
-      }).returning({mockId:MockInterview.mockId})
+      const saveRes = await fetch('/api/interviews', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ jsonMockResp: MockJsonResponse, jobPosition, jobDesc, jobExperience })
+      })
+      if (!saveRes.ok) throw new Error('Could not save the interview. Please try again.')
+      const resp = [await saveRes.json()]
 
       if(resp?.[0]?.mockId){
         setOpenDialog(false)
