@@ -10,7 +10,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { generateJson, interviewQuestionsSchema } from '@/utils/GeminiModel'
+import { generateJson } from '@/utils/geminiClient'
 import { FileText, LoaderCircle, Upload, X } from 'lucide-react'
 import { toast } from 'sonner'
 import { db } from '@/utils/db'
@@ -112,7 +112,7 @@ const AddNewInterview = () => {
 
     const InputPrompt = "job position - "+ jobPosition+", job description : data strucutres and algorithms"+jobDesc+" , job experience:"+jobExperience+" , depending on the above information give me total of "+process.env.NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT+" questions from leetcode medium (2) and one leetcode hard(1) and job description related(7)(mix up the order of questions of both leetcode(and dont give me link of question, just give me the question , no need to say its from leetcode) and job description questions) interview style technical ,Generate a set of extremely challenging technical interview questions based on real-world problems that have appeared in actual software engineering interviews at top tech companies like Google, Meta, Amazon, Apple, and Microsoft. Each question should be designed to test deep understanding of algorithms, data structures, system design, or advanced computer science concepts. Ensure the problems require critical thinking and deep technical insight, with constraints and edge cases explicitly detailed. Focus on areas such as Advanced graph algorithms and theory Hard dynamic programming problems with optimization Distributed systems and scalability challenges Complex string manipulation and parsing problems Multi-threading and concurrency issues For each question, provide a brief problem statement, clear input/output format, and any relevant constraints. Ensure the problems are unique, non-trivial, and demand significant problem-solving skills to solve. questions mixing up the order with answers in json format and if the job description is sde-1 or sde-2 ask questions from topics oops, operating sysytem,computer networks, DBMS , give questions(total 10) and answers filled in json"
     try {
-      const questions = await generateJson(InputPrompt, interviewQuestionsSchema)
+      const questions = await generateJson("questions", InputPrompt)
       const MockJsonResponse = JSON.stringify(questions)
       setJsonResponse(MockJsonResponse)
 

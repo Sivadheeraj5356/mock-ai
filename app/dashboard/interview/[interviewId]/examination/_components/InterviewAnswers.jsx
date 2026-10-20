@@ -5,7 +5,7 @@ import { useEffect , useState } from 'react';
 import useSpeechToText from 'react-hook-speech-to-text';
 import { Textarea } from '@/components/ui/textarea';
 import { Mic } from 'lucide-react';
-import { answerFeedbackSchema, generateJson } from '@/utils/GeminiModel';
+import { generateJson } from '@/utils/geminiClient';
 import { toast } from 'sonner';
 import { db } from '@/utils/db';
 import { UserAnswer } from '@/utils/schema';
@@ -122,7 +122,7 @@ const InterviewAnswers = ({mockInterviewQuestions,activeQuestionIndex, interview
     setLoading(true)
     try {
       const feedbackPrompt = "Question "+mockInterviewQuestions.questions[activeQuestionIndex].question +", user answer "+ completeAnswer+"depending on the question and user answer for given interview answer please give us rating for the answer out of 10 strictly based on the answer and the answer assessment resemble interview like situation , if the answer is irrelvent or semi-answered or repeats the question itself , then strictly give low rating and give feed back in 3 to 4 lines and if the user answer is code, check the code and tell them errors in the code, but give code in single line as well and give me the correct answer(not in json format , but in single line) for the question, in JSON format with rating field and feedback field and correct answer field "
-      const JsonFeedbackResponse = await generateJson(feedbackPrompt, answerFeedbackSchema)
+      const JsonFeedbackResponse = await generateJson("feedback", feedbackPrompt)
 
       await db.insert(UserAnswer)
       .values({
